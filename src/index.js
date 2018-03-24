@@ -16,7 +16,7 @@ const ReduxStore = createStore(Reducers, applyMiddleware(ReduxThunk));
 ReactDOM.render(
   <Provider store={ ReduxStore }>
     <Router>
-      <App />
+      <Route path="/" component={ App } />
     </Router>
   </Provider>, 
   document.getElementById('root')
