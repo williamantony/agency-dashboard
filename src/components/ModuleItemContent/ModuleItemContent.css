@@ -1,0 +1,6 @@
+.ModuleItemContent {
+  position: relative;
+  width: calc(100% - 650px);
+  height: 100%;
+  background-color: #fff;
+}
