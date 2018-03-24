@@ -1,0 +1,10 @@
+.Module {
+  display: flex;
+
+  position: fixed;
+  top: 0px;
+  left: 100px;
+  width: calc(100% - 100px);
+  height: 100%;
+  background-color: #ddd;
+}
