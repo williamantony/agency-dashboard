@@ -15,6 +15,7 @@
   height: 50px;
   border-radius: 25px;
   background-color: rgba(0, 0, 0, 0.2);
+  cursor: text;
 }
 .ModuleSearch__Input > input[type="text"] {
   width: 100%;
@@ -23,6 +24,7 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   border: 0px;
+  outline: 0px;
   background-color: transparent;
   margin-left: 20px;
 }
@@ -33,9 +35,10 @@
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
   background-image: url("./images/search.png");
-  background-size: 25px auto;
-  background-position: center left;
+  background-size: 20px auto;
+  background-position: 10px center;
   background-repeat: no-repeat;
   margin-left: 10px;  
   opacity: 0.5;
+  cursor: pointer;
 }
