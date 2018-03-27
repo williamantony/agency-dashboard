@@ -8,8 +8,8 @@ class SidebarHeader extends Component {
   render() {
     return (
       <div className="SidebarHeader">
-        <Hamburger />
         <ModuleName />
+        <Hamburger />
       </div>
     );
   }
