@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './SidebarHeader.css';
 import Hamburger from '../Hamburger/Hamburger';
-import ModuleName from '../ModuleName/ModuleName';
+import SidebarLogo from '../SidebarLogo/SidebarLogo';
 
 class SidebarHeader extends Component {
 
   render() {
     return (
       <div className="SidebarHeader">
-        <ModuleName />
+        <SidebarLogo />
         <Hamburger />
       </div>
     );
