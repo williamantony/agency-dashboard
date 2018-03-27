@@ -7,7 +7,7 @@ class ModuleName extends Component {
     return (
       <div className="ModuleName">
         <div className="ModuleName__text">
-          Inbox
+          Brand
         </div>
       </div>
     );
