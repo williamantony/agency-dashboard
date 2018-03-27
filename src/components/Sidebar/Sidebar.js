@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Sidebar.css';
-import ModuleName from '../ModuleName/ModuleName';
 import SidebarHeader from '../SidebarHeader/SidebarHeader';
 
 class Sidebar extends Component {
