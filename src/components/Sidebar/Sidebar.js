@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Sidebar.css';
 import SidebarHeader from '../SidebarHeader/SidebarHeader';
+import SidebarDrawer from '../SidebarDrawer/SidebarDrawer';
 
 class Sidebar extends Component {
 
@@ -8,6 +9,7 @@ class Sidebar extends Component {
     return (
       <div className="Sidebar">
         <SidebarHeader />
+        <SidebarDrawer />
       </div>
     );
   }
