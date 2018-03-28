@@ -4,8 +4,8 @@ import { Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar/Sidebar';
 import Chat from './views/Chat/Chat';
 import Module from './components/Module/Module';
-import ModuleListItems from './components/ModuleListItems/ModuleListItems';
-import ModuleItemContent from './components/ModuleItemContent/ModuleItemContent';
+import ModuleSidePane from './components/ModuleSidePane/ModuleSidePane';
+import ModuleMainPane from './components/ModuleMainPane/ModuleMainPane';
 
 class App extends Component {
 
@@ -16,8 +16,8 @@ class App extends Component {
         <Sidebar />
 
         <Module>
-          <ModuleListItems />
-          <ModuleItemContent />
+          <ModuleSidePane />
+          <ModuleMainPane />
         </Module>
 
         <Route path="/" component={ Chat } />
