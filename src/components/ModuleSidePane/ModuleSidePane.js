@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import ModuleSearch from '../ModuleSearch/ModuleSearch';
-import './ModuleListItems.css';
+import './ModuleSidePane.css';
 
-class ModuleListItems extends Component {
+class ModuleSidePane extends Component {
 
   render() {
     return (
-      <div className="ModuleListItems">
+      <div className="ModuleSidePane">
         <ModuleSearch />
       </div>
     );
@@ -14,4 +14,4 @@ class ModuleListItems extends Component {
 
 }
 
-export default ModuleListItems;
+export default ModuleSidePane;
