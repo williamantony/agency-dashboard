@@ -7,6 +7,8 @@ import Module from './components/Module/Module';
 import ModuleSidePane from './components/ModuleSidePane/ModuleSidePane';
 import ModuleMainPane from './components/ModuleMainPane/ModuleMainPane';
 
+import ModuleSearch from './components/ModuleSearch/ModuleSearch';
+
 class App extends Component {
 
   render() {
@@ -15,8 +17,11 @@ class App extends Component {
 
         <Sidebar />
 
-        <Module>
-          <ModuleSidePane />
+        <Module>          
+          <ModuleSidePane>
+            <ModuleSearch />
+          </ModuleSidePane>
+
           <ModuleMainPane />
         </Module>
 
