@@ -30,7 +30,34 @@ class SidebarDrawer extends Component {
             <div className="img" />
           </div>
           <div className="SidebarDrawer__item__text">
+            Calendar
+          </div>
+        </div>
+
+        <div className="SidebarDrawer__item">
+          <div className="SidebarDrawer__item__icon">
+            <div className="img" />
+          </div>
+          <div className="SidebarDrawer__item__text">
+            To do
+          </div>
+        </div>
+
+        <div className="SidebarDrawer__item">
+          <div className="SidebarDrawer__item__icon">
+            <div className="img" />
+          </div>
+          <div className="SidebarDrawer__item__text">
             Invoices
+          </div>
+        </div>
+
+        <div className="SidebarDrawer__item">
+          <div className="SidebarDrawer__item__icon">
+            <div className="img" />
+          </div>
+          <div className="SidebarDrawer__item__text">
+            Support
           </div>
         </div>
 
