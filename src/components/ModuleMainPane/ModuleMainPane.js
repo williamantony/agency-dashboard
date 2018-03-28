@@ -6,7 +6,7 @@ class ModuleMainPane extends Component {
   render() {
     return (
       <div className="ModuleMainPane">
-
+        { this.props.children }
       </div>
     );
   }
