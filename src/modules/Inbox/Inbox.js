@@ -19,11 +19,11 @@ class Inbox extends Component {
                 <div className="InboxMessages__item__icon" />
                 <div className="InboxMessages__item__text">
                   <div className="line">
-                    <div className="sender">Antony Pathadan</div>
+                    <div className="sender">Mark Zuckerberg</div>
                     <div className="timestamp">12 mins</div>
                   </div>
                   <div className="line line2">
-                    <div className="subject">Request for website quote</div>
+                    <div className="subject">I was right - and that’s not good for you</div>
                     <div className="dots">
                       <div className="dot" />
                       <div className="dot" />
@@ -39,11 +39,11 @@ class Inbox extends Component {
                 <div className="InboxMessages__item__icon" />
                 <div className="InboxMessages__item__text">
                   <div className="line">
-                    <div className="sender">Antony Pathadan</div>
-                    <div className="timestamp">12 mins</div>
+                    <div className="sender">Sheryl Sandberg</div>
+                    <div className="timestamp">45 mins</div>
                   </div>
                   <div className="line line2">
-                    <div className="subject">Request for website quote</div>
+                    <div className="subject">We’re starting in 5 HOURS</div>
                     <div className="dots">
                       <div className="dot" />
                       <div className="dot" />
@@ -59,11 +59,11 @@ class Inbox extends Component {
                 <div className="InboxMessages__item__icon" />
                 <div className="InboxMessages__item__text">
                   <div className="line">
-                    <div className="sender">Antony Pathadan</div>
-                    <div className="timestamp">12 mins</div>
+                    <div className="sender">Linus Torvalds</div>
+                    <div className="timestamp">Yesterday</div>
                   </div>
                   <div className="line line2">
-                    <div className="subject">Request for website quote</div>
+                    <div className="subject">It’s time to rethink Black Friday</div>
                     <div className="dots">
                       <div className="dot" />
                       <div className="dot" />
