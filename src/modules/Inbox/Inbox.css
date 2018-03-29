@@ -1,3 +1,107 @@
 .Inbox {
 
 }
+
+.InboxMessages__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.InboxMessages__item:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.InboxMessages__item--unread {
+  border-left: 3px solid #ffc000;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.InboxMessages__item__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 0px 25px;
+}
+.InboxMessages__item__icon {
+  display: none;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: #fff;
+  opacity: 0.25;
+}
+.InboxMessages__item__text {
+  width: 100%;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  opacity: 0.65;
+}
+
+.InboxMessages__item:hover .InboxMessages__item__text,
+.InboxMessages__item--unread .InboxMessages__item__text {
+  opacity: 1.0;
+}
+.InboxMessages__item__text > .line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.InboxMessages__item__text > .line.line2 {
+  padding: 5px 0px 0px 0px;
+}
+.InboxMessages__item__text > .line > .sender {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.InboxMessages__item__text > .line > .timestamp {
+  position: absolute;
+  right: 25px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  padding: 5px 0px 5px 10px;
+  /* background-color: #333; */
+
+}
+.InboxMessages__item__text > .line > .subject {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0.75;
+}
+.InboxMessages__item__text > .line > .dots {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  right: 0px;
+  width: 25px;
+  padding: 10px 25px 10px 25px;
+  opacity: 0;
+}
+.InboxMessages__item:hover .InboxMessages__item__text > .line > .dots {
+  opacity: 0.5;
+}
+.InboxMessages__item .InboxMessages__item__text > .line > .dots:hover {
+  opacity: 0.75;
+}
+.InboxMessages__item__text > .line > .dots > .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+}
