@@ -10,7 +10,7 @@ class Conversation extends Component {
 
         </div>
         <div className="Conversation__input">
-
+          <div className="Conversation__inputbox" contentEditable={ true }></div>
         </div>
       </div>
     );

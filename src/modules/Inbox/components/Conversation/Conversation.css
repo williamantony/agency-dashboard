@@ -9,11 +9,26 @@
 }
 .Conversation__content {
   width: 100%;
-  height: calc(100% - 100px);
+  height: 80%;
   background-color: #ddd;
 }
 .Conversation__input {
   width: 100%;
-  height: 100px;
+  height: 20%;
+  min-height: 75px;
   background-color: #fff;
+}
+.Conversation__inputbox {
+  position: relative;
+  height: calc(100% - 50px);
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  padding: 25px 75px;
+  outline: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 2px 0px 0px rgba(0, 0, 0, 0.15);
+}
+.Conversation__inputbox:focus {
+  box-shadow: inset 0px 2px 0px 0px rgba(0, 149, 255, 0.75);
 }
