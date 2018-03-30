@@ -9,18 +9,21 @@ class Conversation extends Component {
         <div className="Conversation__content">
 
           <div className="Conversation__item" data-type="sent">
+            <div className="datetime">2:30 pm</div>
             <div className="messages">
               <div className="messages__item">How are you ?</div>
             </div>
           </div>
           <div className="Conversation__item">
             <div className="sender" />
+            <div className="datetime">2:30 pm</div>
             <div className="messages">
               <div className="messages__item">I'm fine, thanks.</div>
               <div className="messages__item">Hah,.</div>
             </div>
           </div>
           <div className="Conversation__item" data-type="sent">
+            <div className="datetime">2:30 pm</div>
             <div className="messages">
               <div className="messages__item">Glad to hear that</div>
               <div className="messages__item">Do you have any plans for the evening?</div>
