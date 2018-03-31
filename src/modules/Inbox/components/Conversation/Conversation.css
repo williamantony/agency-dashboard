@@ -58,6 +58,7 @@
   align-items: flex-end;
 }
 .Conversation__item > .messages > .messages__item {
+  max-width: 75%;
   color: #fff;
   font-size: 17px;
   font-family: 'Roboto', sans-serif;
