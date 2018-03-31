@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   addMessage,
+  addMessageToGroup,
   createGroup,
 } from '../../../../redux/actions';
 
@@ -57,6 +58,46 @@ class Conversation extends Component {
 
   }
 
+  handleKeyPress = e => {
+    
+    if (e.key === 'Enter') {
+
+      e.preventDefault();
+
+      const { groups } = this.props.conversation;
+
+      const message = {
+        type: 'outgoing',
+        datetime: Date.now(),
+        message: e.target.textContent,
+      };
+      
+
+
+      let targetGroupID = null;
+
+      if (groups.length > 0) {
+        
+        const lastGroup = groups[groups.length - 1];
+        targetGroupID = lastGroup.id;
+
+      } else {
+        
+        const newGroup = this.createGroup();
+        targetGroupID = newGroup.id;
+
+      }
+
+
+
+      this.props.addMessageToGroup(message, targetGroupID);
+
+      e.target.innerHTML = '';
+
+    }
+
+  }
+
   render() {
     return (
       <div className="Conversation">
@@ -84,6 +125,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   addMessage,
+  addMessageToGroup,
   createGroup,
 };
 
