@@ -1,0 +1,68 @@
+
+.ConversationGroup {
+  padding: 10px 25px;
+}
+.ConversationGroup:last-child {
+  padding-bottom: 50px;
+}
+
+.ConversationGroup > .sender {
+  display: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  background-color: #999;
+}
+.ConversationGroup > .datetime {
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.ConversationGroup[data-type="sent"] > .datetime {
+  text-align: right;
+}
+.ConversationGroup > .messages {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ConversationGroup[data-type="sent"] > .messages {
+  align-items: flex-end;
+}
+.ConversationGroup > .messages > .messages__item {
+  max-width: 75%;
+  color: #fff;
+  font-size: 17px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  text-align: left;
+  letter-spacing: 0.25px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: #555;
+}
+.ConversationGroup[data-type="sent"] > .messages > .messages__item {
+  color: #000;
+  background-color: #bbb;
+}
+.ConversationGroup > .messages > .messages__item:not(:last-child) {
+  margin-bottom: 3px;
+}
+.ConversationGroup:not([data-type="sent"]) > .messages > .messages__item:first-child,
+.ConversationGroup:not([data-type="sent"]) > .messages > .messages__item:not(:first-child) {
+  border-top-left-radius: 5px;
+}
+.ConversationGroup:not([data-type="sent"]) > .messages > .messages__item:not(:last-child) {
+  border-bottom-left-radius: 5px;
+}
+.ConversationGroup[data-type="sent"] > .messages > .messages__item:first-child,
+.ConversationGroup[data-type="sent"] > .messages > .messages__item:not(:first-child) {
+  border-top-right-radius: 5px;
+}
+.ConversationGroup[data-type="sent"] > .messages > .messages__item:not(:last-child) {
+  border-bottom-right-radius: 5px;
+}
