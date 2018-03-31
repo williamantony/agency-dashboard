@@ -1,57 +1,47 @@
 import React, { Component } from 'react';
 import './Conversation.css';
+import ConversationGroup from './components/ConversationGroup/ConversationGroup';
 
 class Conversation extends Component {
+
+  state = {
+    group: [
+      {
+        type: 'sent',
+        datetime: '2:30 pm',
+        messages: [
+          'How are you ?',
+        ],
+      },
+      {
+        type: 'received',
+        datetime: '2:30 pm',
+        messages: [
+          'I\'m fine, thanks.',
+          'Hah,.',
+        ],
+      },
+      {
+        type: 'sent',
+        datetime: '2:30 pm',
+        messages: [
+          'Glad to hear that',
+          'Do you have any plans for the evening?',
+        ],
+      }
+    ]
+  }
 
   render() {
     return (          
       <div className="Conversation">
         <div className="Conversation__view">
           <div className="Conversation__content">
-
-            <div className="Conversation__item" data-type="sent">
-              <div className="datetime">2:30 pm</div>
-              <div className="messages">
-                <div className="messages__item">How are you ?</div>
-              </div>
-            </div>
-            <div className="Conversation__item">
-              <div className="sender" />
-              <div className="datetime">2:30 pm</div>
-              <div className="messages">
-                <div className="messages__item">I'm fine, thanks.</div>
-                <div className="messages__item">Hah,.</div>
-              </div>
-            </div>
-            <div className="Conversation__item" data-type="sent">
-              <div className="datetime">2:30 pm</div>
-              <div className="messages">
-                <div className="messages__item">Glad to hear that</div>
-                <div className="messages__item">Do you have any plans for the evening?</div>
-              </div>
-            </div>
-            <div className="Conversation__item" data-type="sent">
-              <div className="datetime">2:30 pm</div>
-              <div className="messages">
-                <div className="messages__item">How are you ?</div>
-              </div>
-            </div>
-            <div className="Conversation__item">
-              <div className="sender" />
-              <div className="datetime">2:30 pm</div>
-              <div className="messages">
-                <div className="messages__item">I'm fine, thanks.</div>
-                <div className="messages__item">Hah,.</div>
-              </div>
-            </div>
-            <div className="Conversation__item" data-type="sent">
-              <div className="datetime">2:30 pm</div>
-              <div className="messages">
-                <div className="messages__item">Glad to hear that</div>
-                <div className="messages__item">Do you have any plans for the evening?</div>
-              </div>
-            </div>
-
+            {
+              this.state.group.map(group => {
+                return (<ConversationGroup group={ group } />);
+              })
+            }
           </div>
         </div>
         <div className="Conversation__input">
