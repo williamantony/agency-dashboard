@@ -11,6 +11,20 @@ export const addMessage = (message) => {
 
 };
 
+export const ADD_MESSAGE_TO_GROUP = 'ADD_MESSAGE_TO_GROUP';
+
+export const addMessageToGroup = (message, groupID) => {
+
+  return {
+    type: ADD_MESSAGE_TO_GROUP,
+    payload: {
+      message,
+      groupID,
+    },
+  };
+
+};
+
 export const CREATE_GROUP = 'CREATE_GROUP';
 
 export const createGroup = (group) => {
