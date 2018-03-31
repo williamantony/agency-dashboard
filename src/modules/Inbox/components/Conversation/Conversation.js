@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import './Conversation.css';
 import ConversationGroup from './components/ConversationGroup/ConversationGroup';
 
@@ -33,13 +35,13 @@ class Conversation extends Component {
   }
 
   render() {
-    return (          
+    return (
       <div className="Conversation">
         <div className="Conversation__view">
           <div className="Conversation__content">
             {
-              this.state.group.map(group => {
-                return (<ConversationGroup group={ group } />);
+              this.state.group.map((group, index) => {
+                return (<ConversationGroup key={ index } group={ group } />);
               })
             }
           </div>
@@ -53,4 +55,10 @@ class Conversation extends Component {
 
 }
 
-export default Conversation;
+const mapStateToProps = state => {
+  return state;
+};
+
+const mapDispatchToProps = { };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Conversation);
