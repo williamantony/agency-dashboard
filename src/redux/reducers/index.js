@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import sample from './sample.reducer';
+import conversation from './conversation.reducer';
 
 export default combineReducers({
-  sample
+  conversation
 });
