@@ -64,6 +64,8 @@ class Conversation extends Component {
 
       e.preventDefault();
 
+      if (e.target.innerHTML.trim() === '') return;
+
       const { groups } = this.props.conversation;
 
       const message = {
@@ -71,7 +73,7 @@ class Conversation extends Component {
         datetime: Date.now(),
         message: e.target.textContent,
       };
-      
+
 
 
       let targetGroupID = null;
@@ -104,8 +106,8 @@ class Conversation extends Component {
         <div className="Conversation__view">
           <div className="Conversation__content">
             {
-              this.props.conversation.messages.map((group, index) => {
-                return (<ConversationGroup key={ index } group={ this.state.group[index] } />);
+              this.props.conversation.groups.map((group, index) => {
+                return (<ConversationGroup key={ index } group={ group } />);
               })
             }
           </div>
