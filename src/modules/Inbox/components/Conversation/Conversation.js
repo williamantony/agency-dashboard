@@ -78,15 +78,30 @@ class Conversation extends Component {
 
       let targetGroupID = null;
 
+      const createNewGroup = () => {
+
+        const newGroup = this.createGroup();
+        targetGroupID = newGroup.id;
+
+      };
+
       if (groups.length > 0) {
-        
+
         const lastGroup = groups[groups.length - 1];
         targetGroupID = lastGroup.id;
 
+        const lastGroupDate = new Date(new Date(lastGroup.datetime).setSeconds(0, 0)).toISOString();
+        const messageDate = new Date(new Date(message.datetime).setSeconds(0, 0)).toISOString();
+
+        if (lastGroupDate !== messageDate) {
+
+          createNewGroup();
+
+        }
+
       } else {
         
-        const newGroup = this.createGroup();
-        targetGroupID = newGroup.id;
+        createNewGroup();
 
       }
 
