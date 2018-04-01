@@ -10,8 +10,8 @@ class ConversationGroup extends Component {
         <div className="datetime">{ group.datetime }</div>
         <div className="messages">
           {
-            group.messages.map(message => {
-              return (<div className="messages__item">{ message }</div>);
+            group.messages.map((message, index) => {
+              return (<div key={ index } className="messages__item">{ message.message }</div>);
             })
           }
         </div>
