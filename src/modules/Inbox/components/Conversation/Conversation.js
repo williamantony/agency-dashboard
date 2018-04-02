@@ -11,34 +11,6 @@ import ConversationGroup from './components/ConversationGroup/ConversationGroup'
 
 class Conversation extends Component {
 
-  state = {
-    group: [
-      {
-        type: 'sent',
-        datetime: '2:30 pm',
-        messages: [
-          'How are you ?',
-        ],
-      },
-      {
-        type: 'received',
-        datetime: '2:30 pm',
-        messages: [
-          'I\'m fine, thanks.',
-          'Hah,.',
-        ],
-      },
-      {
-        type: 'sent',
-        datetime: '2:30 pm',
-        messages: [
-          'Glad to hear that',
-          'Do you have any plans for the evening?',
-        ],
-      }
-    ]
-  }
-
   createGroup = (direction = 'incoming') => {
 
     const { groups } = this.props.conversation;
@@ -69,7 +41,7 @@ class Conversation extends Component {
       const { groups } = this.props.conversation;
 
       const message = {
-        type: 'outgoing',
+        direction: 'outgoing',
         datetime: Date.now(),
         message: e.target.textContent,
       };
@@ -80,7 +52,7 @@ class Conversation extends Component {
 
       const createNewGroup = () => {
 
-        const newGroup = this.createGroup();
+        const newGroup = this.createGroup(message.direction);
         targetGroupID = newGroup.id;
 
       };
@@ -92,7 +64,7 @@ class Conversation extends Component {
 
         const lastGroupDate = new Date(new Date(lastGroup.datetime).setSeconds(0, 0)).toISOString();
         const messageDate = new Date(new Date(message.datetime).setSeconds(0, 0)).toISOString();
-
+        
         if (lastGroupDate !== messageDate) {
 
           createNewGroup();
