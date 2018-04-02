@@ -22,7 +22,7 @@
   margin-bottom: 10px;
   text-align: left;
 }
-.ConversationGroup[data-type="sent"] > .datetime {
+.ConversationGroup[data-type="outgoing"] > .datetime {
   text-align: right;
 }
 .ConversationGroup > .messages {
@@ -30,7 +30,7 @@
   flex-direction: column;
   align-items: flex-start;
 }
-.ConversationGroup[data-type="sent"] > .messages {
+.ConversationGroup[data-type="outgoing"] > .messages {
   align-items: flex-end;
 }
 .ConversationGroup > .messages > .messages__item {
@@ -45,24 +45,24 @@
   padding: 10px 20px;
   background-color: #555;
 }
-.ConversationGroup[data-type="sent"] > .messages > .messages__item {
+.ConversationGroup[data-type="outgoing"] > .messages > .messages__item {
   color: #000;
   background-color: #bbb;
 }
 .ConversationGroup > .messages > .messages__item:not(:last-child) {
   margin-bottom: 3px;
 }
-.ConversationGroup:not([data-type="sent"]) > .messages > .messages__item:first-child,
-.ConversationGroup:not([data-type="sent"]) > .messages > .messages__item:not(:first-child) {
+.ConversationGroup:not([data-type="outgoing"]) > .messages > .messages__item:first-child,
+.ConversationGroup:not([data-type="outgoing"]) > .messages > .messages__item:not(:first-child) {
   border-top-left-radius: 5px;
 }
-.ConversationGroup:not([data-type="sent"]) > .messages > .messages__item:not(:last-child) {
+.ConversationGroup:not([data-type="outgoing"]) > .messages > .messages__item:not(:last-child) {
   border-bottom-left-radius: 5px;
 }
-.ConversationGroup[data-type="sent"] > .messages > .messages__item:first-child,
-.ConversationGroup[data-type="sent"] > .messages > .messages__item:not(:first-child) {
+.ConversationGroup[data-type="outgoing"] > .messages > .messages__item:first-child,
+.ConversationGroup[data-type="outgoing"] > .messages > .messages__item:not(:first-child) {
   border-top-right-radius: 5px;
 }
-.ConversationGroup[data-type="sent"] > .messages > .messages__item:not(:last-child) {
+.ConversationGroup[data-type="outgoing"] > .messages > .messages__item:not(:last-child) {
   border-bottom-right-radius: 5px;
 }
