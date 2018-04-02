@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import './ConversationGroup.css';
 
 class ConversationGroup extends Component {
 
   render() {
-    const { group } = this.props;
+    const { group } = this.props;    
     return (
-      <div className="ConversationGroup" data-type={ group.type }>
-        <div className="datetime">{ group.datetime }</div>
+      <div className="ConversationGroup" data-type={ group.direction }>
+        <div className="datetime">
+          {
+            moment(group.datetime).format('LT')
+          }
+        </div>
         <div className="messages">
           {
             group.messages.map((message, index) => {
