@@ -30,6 +30,20 @@ class Conversation extends Component {
 
   }
 
+  createMessage = (message = '', direction = 'incoming') => {
+
+    const { groups } = this.props.conversation;
+
+    const newMessage = {
+      direction: 'outgoing',
+      datetime: Date.now(),
+      message,
+    };
+
+    return newMessage;
+
+  }
+
   handleKeyPress = e => {
     
     if (e.key === 'Enter') {
@@ -39,14 +53,7 @@ class Conversation extends Component {
       if (e.target.innerHTML.trim() === '') return;
 
       const { groups } = this.props.conversation;
-
-      const message = {
-        direction: 'outgoing',
-        datetime: Date.now(),
-        message: e.target.textContent,
-      };
-
-
+      const message = this.createMessage(e.target.textContent);
 
       let targetGroupID = null;
 
