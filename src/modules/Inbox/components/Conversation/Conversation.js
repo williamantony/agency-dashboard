@@ -5,9 +5,11 @@ import {
   addMessageToGroup,
   createGroup,
 } from '../../../../redux/actions';
+import moment from 'moment';
 
 import './Conversation.css';
 import ConversationGroup from './components/ConversationGroup/ConversationGroup';
+import DayDivider from './components/DayDivider/DayDivider';
 
 class Conversation extends Component {
 
@@ -35,7 +37,7 @@ class Conversation extends Component {
     const { groups } = this.props.conversation;
 
     const newMessage = {
-      direction: 'outgoing',
+      direction,
       datetime: Date.now(),
       message,
     };
@@ -53,7 +55,7 @@ class Conversation extends Component {
       if (e.target.innerHTML.trim() === '') return;
 
       const { groups } = this.props.conversation;
-      const message = this.createMessage(e.target.textContent);
+      const message = this.createMessage(e.target.textContent, 'outgoing');
 
       let targetGroupID = null;
 
@@ -69,8 +71,8 @@ class Conversation extends Component {
         const lastGroup = groups[groups.length - 1];
         targetGroupID = lastGroup.id;
 
-        const lastGroupDate = new Date(new Date(lastGroup.datetime).setSeconds(0, 0)).toISOString();
-        const messageDate = new Date(new Date(message.datetime).setSeconds(0, 0)).toISOString();
+        const lastGroupDate = new Date(lastGroup.datetime).setSeconds(0, 0);
+        const messageDate = new Date(message.datetime).setSeconds(0, 0);
         
         if (lastGroupDate !== messageDate) {
 
@@ -100,8 +102,14 @@ class Conversation extends Component {
         <div className="Conversation__view">
           <div className="Conversation__content">
             {
-              this.props.conversation.groups.map((group, index) => {
-                return (<ConversationGroup key={ index } group={ group } />);
+              this.props.conversation.groups.map((group, index, groupArray) => {
+                const jsx = [];
+                if (index > 0)
+                console.log(moment(group.datetime).isSame(groupArray[index - 1].datetime, 'day'));
+                jsx.push(<DayDivider key={ 'DayDivider_' + index } />);
+                jsx.push(<ConversationGroup key={ index } group={ group } />);
+
+                return jsx;
               })
             }
           </div>
