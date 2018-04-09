@@ -72,9 +72,9 @@ class Conversation extends Component {
 
   }
 
-  sendMessage = (messageData = '', direction = 'incoming') => {
+  sendMessage = (messageData = '') => {
 
-    this.pushMessage(messageData, direction);
+    this.pushMessage(messageData, 'incoming');
 
   }
 
@@ -85,7 +85,7 @@ class Conversation extends Component {
       e.preventDefault();
 
       if (e.target.innerHTML.trim() !== '') {
-        this.sendMessage(e.target.textContent, 'outgoing');
+        this.sendMessage(e.target.textContent);
       }
 
       e.target.innerHTML = '';
