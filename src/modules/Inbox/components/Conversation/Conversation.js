@@ -72,6 +72,12 @@ class Conversation extends Component {
 
   }
 
+  receiveMessage = (messageData = '') => {
+
+    this.pushMessage(messageData, 'outgoing');
+
+  }
+
   sendMessage = (messageData = '') => {
 
     this.pushMessage(messageData, 'incoming');
