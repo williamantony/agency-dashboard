@@ -42,39 +42,45 @@ class Conversation extends Component {
 
   }
 
+  pushMessage = (messageData = '', direction = 'incoming') => {
+
+    const { groups } = this.props.conversation;
+    let currentGroup = groups[groups.length - 1];
+
+    const message = this.createMessage(messageData, direction);
+    
+    const isNewGroupNeeded = () => {
+
+      if (groups.length === 0) return true;
+      else {
+        if (moment(currentGroup.datetime).isSame(message.datetime, 'minute') === false) {
+          return true;
+        }
+      }
+
+      return false;
+
+    };
+
+    if (isNewGroupNeeded()) {
+      const newGroup = this.createGroup(message.direction);
+      this.props.createGroup(newGroup);
+      currentGroup = newGroup;
+    }
+
+    this.props.addMessageToGroup(message, currentGroup.id);
+
+  }
+
   handleKeyPress = e => {
     
     if (e.key === 'Enter') {
 
       e.preventDefault();
 
-      if (e.target.innerHTML.trim() === '') return;
-
-      const { groups } = this.props.conversation;
-      let currentGroup = groups[groups.length - 1];
-
-      const message = this.createMessage(e.target.textContent, 'outgoing');
-      
-      const isNewGroupNeeded = () => {
-
-        if (groups.length === 0) return true;
-        else {
-          if (moment(currentGroup.datetime).isSame(message.datetime, 'minute') === false) {
-            return true;
-          }
-        }
-
-        return false;
-
-      };
-
-      if (isNewGroupNeeded()) {
-        const newGroup = this.createGroup(message.direction);
-        this.props.createGroup(newGroup);
-        currentGroup = newGroup;
+      if (e.target.innerHTML.trim() !== '') {
+        this.pushMessage(e.target.textContent, 'outgoing');
       }
-
-      this.props.addMessageToGroup(message, currentGroup.id);
 
       e.target.innerHTML = '';
 
