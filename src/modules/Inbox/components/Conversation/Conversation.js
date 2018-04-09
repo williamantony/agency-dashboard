@@ -72,6 +72,12 @@ class Conversation extends Component {
 
   }
 
+  sendMessage = (messageData = '', direction = 'incoming') => {
+
+    this.pushMessage(messageData, direction);
+
+  }
+
   handleKeyPress = e => {
     
     if (e.key === 'Enter') {
@@ -79,7 +85,7 @@ class Conversation extends Component {
       e.preventDefault();
 
       if (e.target.innerHTML.trim() !== '') {
-        this.pushMessage(e.target.textContent, 'outgoing');
+        this.sendMessage(e.target.textContent, 'outgoing');
       }
 
       e.target.innerHTML = '';
