@@ -16,17 +16,13 @@ class Conversation extends Component {
   createGroup = (direction = 'incoming') => {
 
     const { groups } = this.props.conversation;
-    const count = groups.length;
-    const id = count + 1;
-    
+
     const newGroup = {
-      id,
+      id: `Group_${ groups.length + 1 }`,
       direction,
       datetime: Date.now(),
       messages: [],
     };
-
-    this.props.createGroup(newGroup);
 
     return newGroup;
 
@@ -55,40 +51,30 @@ class Conversation extends Component {
       if (e.target.innerHTML.trim() === '') return;
 
       const { groups } = this.props.conversation;
+      let currentGroup = groups[groups.length - 1];
+
       const message = this.createMessage(e.target.textContent, 'outgoing');
+      
+      const isNewGroupNeeded = () => {
 
-      let targetGroupID = null;
+        if (groups.length === 0) return true;
+        else {
+          if (moment(currentGroup.datetime).isSame(message.datetime, 'minute') === false) {
+            return true;
+          }
+        }
 
-      const createNewGroup = () => {
-
-        const newGroup = this.createGroup(message.direction);
-        targetGroupID = newGroup.id;
+        return false;
 
       };
 
-      if (groups.length > 0) {
-
-        const lastGroup = groups[groups.length - 1];
-        targetGroupID = lastGroup.id;
-
-        const lastGroupDate = new Date(lastGroup.datetime).setSeconds(0, 0);
-        const messageDate = new Date(message.datetime).setSeconds(0, 0);
-        
-        if (lastGroupDate !== messageDate) {
-
-          createNewGroup();
-
-        }
-
-      } else {
-        
-        createNewGroup();
-
+      if (isNewGroupNeeded()) {
+        const newGroup = this.createGroup(message.direction);
+        this.props.createGroup(newGroup);
+        currentGroup = newGroup;
       }
 
-
-
-      this.props.addMessageToGroup(message, targetGroupID);
+      this.props.addMessageToGroup(message, currentGroup.id);
 
       e.target.innerHTML = '';
 
@@ -104,9 +90,18 @@ class Conversation extends Component {
             {
               this.props.conversation.groups.map((group, index, groupArray) => {
                 const jsx = [];
-                if (index > 0)
-                console.log(moment(group.datetime).isSame(groupArray[index - 1].datetime, 'day'));
-                jsx.push(<DayDivider key={ 'DayDivider_' + index } />);
+
+                let showDayDivider = true;
+
+                if (index > 0) {
+                  const sameDay = moment(group.datetime).isSame(groupArray[index - 1].datetime, 'day');
+                  showDayDivider = !sameDay;
+                }
+
+                if (showDayDivider) {
+                  jsx.push(<DayDivider key={ 'DayDivider_' + index } />);
+                }
+
                 jsx.push(<ConversationGroup key={ index } group={ group } />);
 
                 return jsx;
