@@ -7,9 +7,9 @@ class DayDivider extends Component {
   render() {
     return (
       <div className="DayDivider">
-        {
-          moment().format('LL')
-        }
+        <div className="date">
+          { moment().format('LL') }
+        </div>
       </div>
     );
   }
