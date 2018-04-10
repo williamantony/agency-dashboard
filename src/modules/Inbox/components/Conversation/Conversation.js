@@ -96,6 +96,16 @@ class Conversation extends Component {
 
   }
 
+  onPaste = e => {
+
+    e.preventDefault();
+
+    const copiedText = e.clipboardData.getData('text/plain');
+
+    document.execCommand('insertHTML', false, copiedText);
+
+  }
+
   receiveDummyMessage = () => {
 
     this.receiveMessage('Something Wonderfull');
@@ -130,7 +140,11 @@ class Conversation extends Component {
           </div>
         </div>
         <div className="Conversation__input">
-          <div className="Conversation__inputbox" contentEditable={ true } onKeyPress={ this.handleKeyPress } />
+          <div className="Conversation__inputbox" 
+            contentEditable={ true } 
+            onKeyPress={ this.handleKeyPress } 
+            onPaste={ this.onPaste } 
+            />
         </div>
       </div>
     );
