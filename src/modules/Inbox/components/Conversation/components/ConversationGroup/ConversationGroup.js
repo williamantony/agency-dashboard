@@ -16,7 +16,7 @@ class ConversationGroup extends Component {
         <div className="messages">
           {
             group.messages.map((message, index) => {
-              return (<div key={ index } className="messages__item">{ message.message }</div>);
+              return (<div key={ index } className="messages__item" dangerouslySetInnerHTML={{ __html: message.message }} />);
             })
           }
         </div>

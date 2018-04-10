@@ -15,11 +15,11 @@
   background-color: #999;
 }
 .ConversationGroup > .datetime {
-  font-size: 13px;
+  font-size: 12px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.25px;
-  margin-bottom: 10px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
   text-align: left;
 }
 .ConversationGroup[data-type="outgoing"] > .datetime {
