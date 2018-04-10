@@ -7,6 +7,7 @@ import Todo from './modules/Todo/Todo';
 import Contacts from './modules/Contacts/Contacts';
 import Calendar from './modules/Calendar/Calendar';
 import Invoices from './modules/Invoices/Invoices';
+import Support from './modules/Support/Support';
 
 
 
@@ -23,6 +24,7 @@ class App extends Component {
         <Route path="/contacts" component={ Contacts } />
         <Route path="/calendar" component={ Calendar } />
         <Route path="/invoices" component={ Invoices } />
+        <Route path="/support" component={ Support } />
 
       </div>
     );
