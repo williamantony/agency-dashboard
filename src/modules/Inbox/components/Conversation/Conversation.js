@@ -82,12 +82,12 @@ class Conversation extends Component {
 
   handleKeyPress = e => {
     
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && !e.shiftKey) {
 
       e.preventDefault();
 
       if (e.target.innerHTML.trim() !== '') {
-        this.sendMessage(e.target.textContent);
+        this.sendMessage(e.target.innerHTML);
       }
 
       e.target.innerHTML = '';
