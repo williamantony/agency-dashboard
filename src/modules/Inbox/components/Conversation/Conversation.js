@@ -48,18 +48,14 @@ class Conversation extends Component {
     let currentGroup = groups[groups.length - 1];
 
     const message = this.createMessage(messageData, direction);
-    
-    const isNewGroupNeeded = () => {
 
+    const isNewGroupNeeded = () => {
       if (groups.length === 0) return true;
       else {
-        if (moment(currentGroup.datetime).isSame(message.datetime, 'minute') === false) {
-          return true;
-        }
+        if (!moment(currentGroup.datetime).isSame(message.datetime, 'minute')) return true;
+        if (currentGroup.direction !== message.direction) return true;
       }
-
       return false;
-
     };
 
     if (isNewGroupNeeded()) {
@@ -69,7 +65,7 @@ class Conversation extends Component {
     }
 
     this.props.addMessageToGroup(message, currentGroup.id);
-
+    
   }
 
   receiveMessage = (messageData = '') => {
@@ -100,11 +96,17 @@ class Conversation extends Component {
 
   }
 
+  receiveDummyMessage = () => {
+
+    this.receiveMessage('Something Wonderfull');
+
+  }
+
   render() {
     return (
       <div className="Conversation">
         <div className="Conversation__view">
-          <div className="Conversation__content">
+          <div className="Conversation__content" onClick={ this.receiveDummyMessage }>
             {
               this.props.conversation.groups.map((group, index, groupArray) => {
                 const jsx = [];
