@@ -1,6 +1,9 @@
 .SidebarDrawer {
 
 }
+.SidebarDrawer > a {
+  text-decoration: none;
+}
 .SidebarDrawer__item {
   display: flex;
   flex-direction: row;
