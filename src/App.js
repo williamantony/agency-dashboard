@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 
 import Sidebar from './components/Sidebar/Sidebar';
 import Inbox from './modules/Inbox/Inbox';
+import Todo from './modules/Todo/Todo';
 
 
 
@@ -15,6 +16,7 @@ class App extends Component {
         <Sidebar />
         
         <Route path="/inbox" component={ Inbox } />
+        <Route path="/todo" component={ Todo } />
 
       </div>
     );
