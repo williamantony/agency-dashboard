@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar/Sidebar';
 import Inbox from './modules/Inbox/Inbox';
 import Todo from './modules/Todo/Todo';
+import Contacts from './modules/Contacts/Contacts';
 
 
 
@@ -17,6 +18,7 @@ class App extends Component {
         
         <Route path="/inbox" component={ Inbox } />
         <Route path="/todo" component={ Todo } />
+        <Route path="/contacts" component={ Contacts } />
 
       </div>
     );
