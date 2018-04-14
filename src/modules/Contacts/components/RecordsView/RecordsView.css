@@ -1,0 +1,78 @@
+.RecordsView {
+  
+}
+
+.Record {
+  font-family: 'Roboto', sans-serif;
+  padding: 25px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.Record__head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.Record__title {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #2196F3;
+  cursor: pointer;
+}
+
+
+.Record__content {
+  max-width: 480px;
+}
+.RecordEntry {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+  min-width: 250px;
+  border-radius: 3px;
+  box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.15);
+  background-color: #eee;
+  overflow: hidden;
+  transform: scale(1.0);
+  transition: all 0.25s ease 0s;
+  cursor: pointer;
+}
+.RecordEntry:not(:last-child) {
+  margin-bottom: 5px;
+}
+.RecordEntry:hover {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.15), 
+              0px 3px 150px -1px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  z-index: 1;
+}
+
+
+
+.RecordEntry__content {
+  width: 100%;
+  padding: 20px;
+}
+.RecordEntry__name {
+  color: #E91E63;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.RecordEntry__value {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+}
+
+
