@@ -5,6 +5,8 @@ import ModuleSidePane from '../../components/ModuleSidePane/ModuleSidePane';
 import ModuleMainPane from '../../components/ModuleMainPane/ModuleMainPane';
 import ModuleSearch from '../../components/ModuleSearch/ModuleSearch';
 
+import InformationRecords from './components/InformationRecords/InformationRecords';
+
 class Inbox extends Component {
 
   render() {
@@ -17,6 +19,7 @@ class Inbox extends Component {
 
         <ModuleMainPane>
           
+          <InformationRecords />
         </ModuleMainPane>
       </Module>
     );
