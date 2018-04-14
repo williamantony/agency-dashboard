@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RecordEntry from '../RecordEntry/RecordEntry';
+import RecordEntry from './components/RecordEntry/RecordEntry';
 
 import './Record.css';
 
