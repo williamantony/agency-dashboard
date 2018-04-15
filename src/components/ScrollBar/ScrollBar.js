@@ -12,12 +12,14 @@ class ScrollBar extends Component {
     this.tab = null;
     this.container = null;
 
+    this.sp = 0;
 
   }
   
   setScroll = e => {
     this.isScrolling = true;
-    this.scroll(e);
+    this.sp = e.y - 100;
+    // this.scroll(e);
   }
 
   unsetScroll = e => {
@@ -27,7 +29,8 @@ class ScrollBar extends Component {
   reset = () => {
 
     this.bar.style.top = this.container.offsetTop + 'px';
-    this.tab.style.height = ((this.container.clientHeight / this.container.scrollHeight) * 100) + '%';
+    this.bar.style.height = this.container.clientHeight + 'px';
+    this.tab.style.height = (((this.container.clientHeight + this.container.offsetTop) / this.container.scrollHeight) * 100) + '%';
 
   }
 
@@ -37,9 +40,27 @@ class ScrollBar extends Component {
 
     if (!this.isScrolling) return true;
     
-    /**
-     * Implement Here
-     */
+    const minY = 0;
+    const maxY = (this.bar.clientHeight - this.tab.clientHeight);
+
+    const posY = (e.y || e.clientY || e.pageY || e.screenY) - this.bar.offsetTop;
+
+    let position = posY - (this.tab.clientHeight / 2);
+
+    position = (position < minY) ? minY : position;
+    position = (position >= maxY) ? maxY : position;
+
+    const movementRate = (position / (this.bar.clientHeight - this.tab.clientHeight)) * 100;
+
+    const scrollTop = (movementRate / 100) * (this.container.scrollHeight - this.container.clientHeight);
+
+    this.tab.style.top = position + 'px';
+
+    this.container.scrollTop = scrollTop;
+
+    console.log('movementRate:', movementRate, scrollTop);
+
+    this.reset();
 
   }
 
