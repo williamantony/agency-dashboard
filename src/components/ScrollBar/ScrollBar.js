@@ -4,26 +4,24 @@ import './ScrollBar.css';
 class ScrollBar extends Component {
 
   constructor(props) {
-    super(props);
-    
-    this.isScrolling = false;
+    super(props);    
 
     this.bar = null;
     this.tab = null;
     this.container = null;
 
-    this.sp = 0;
-
+    this.isScrolling = false;
+    this.mouseOrigin = null;
   }
   
   setScroll = e => {
     this.isScrolling = true;
-    this.sp = e.y - 100;
-    // this.scroll(e);
+    this.scroll(e);
   }
 
   unsetScroll = e => {
     this.isScrolling = false;
+    this.mouseOrigin = null;
   }
   
   reset = () => {
@@ -42,23 +40,26 @@ class ScrollBar extends Component {
     
     const minY = 0;
     const maxY = (this.bar.clientHeight - this.tab.clientHeight);
-
     const posY = (e.y || e.clientY || e.pageY || e.screenY) - this.bar.offsetTop;
 
-    let position = posY - (this.tab.clientHeight / 2);
+    if (this.mouseOrigin === null) {
+      this.mouseOrigin = posY - this.tab.offsetTop;
+    }
+
+    let position = posY - this.mouseOrigin;
 
     position = (position < minY) ? minY : position;
     position = (position >= maxY) ? maxY : position;
 
+    // Finding the percentage of movement in the Scrollbar
     const movementRate = (position / (this.bar.clientHeight - this.tab.clientHeight)) * 100;
 
+    // Finding the percentage equalent of the available Scrollheight
     const scrollTop = (movementRate / 100) * (this.container.scrollHeight - this.container.clientHeight);
 
     this.tab.style.top = position + 'px';
 
     this.container.scrollTop = scrollTop;
-
-    console.log('movementRate:', movementRate, scrollTop);
 
     this.reset();
 
@@ -73,9 +74,10 @@ class ScrollBar extends Component {
     this.reset();
     
     // Initializing Events
-    this.bar.addEventListener('mousedown', this.setScroll);
+    this.tab.addEventListener('mousedown', this.setScroll);
     window.addEventListener('mouseup', this.unsetScroll);
     window.addEventListener('mousemove', this.scroll);
+    window.addEventListener('resize', this.reset);
 
   }
 
