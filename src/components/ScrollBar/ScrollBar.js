@@ -58,7 +58,7 @@ class ScrollBar extends Component {
     const scrollTop = (movementRate / 100) * (this.container.scrollHeight - this.container.clientHeight);
 
     this.tab.style.top = position + 'px';
-
+    
     this.container.scrollTop = scrollTop;
 
     this.reset();
@@ -75,9 +75,9 @@ class ScrollBar extends Component {
     
     // Initializing Events
     this.tab.addEventListener('mousedown', this.setScroll);
-    window.addEventListener('mouseup', this.unsetScroll);
-    window.addEventListener('mousemove', this.scroll);
-    window.addEventListener('resize', this.reset);
+    global.addEventListener('mouseup', this.unsetScroll);
+    global.addEventListener('mousemove', this.scroll);
+    global.addEventListener('resize', this.reset);
 
   }
 
