@@ -7,3 +7,11 @@
   height: 100%;
   background-color: #ddd;
 }
+.ModuleMainPane__header {
+  position: relative;
+  height: 100px;
+}
+.ModuleMainPane__content {
+  position: relative;
+  height: calc(100% - 100px);
+}
