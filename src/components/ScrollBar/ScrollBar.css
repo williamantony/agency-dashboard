@@ -1,0 +1,25 @@
+.ScrollBar {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 0px;
+  height: auto;
+  opacity: 0;
+  overflow: hidden;
+  background-color: #ddd;
+  z-index: 99999;
+}
+.ScrollBar {
+  width: 20px;
+  opacity: 1.0;
+  transition: opacity 1s linear 0s;
+}
+.ScrollBar__tab {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 50px;
+  height: 5px;
+  background-color: #cc0000;
+  transition: top 0.05s linear 0s;
+}
