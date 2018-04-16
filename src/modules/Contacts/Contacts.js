@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import Module from '../../components/Module/Module';
 import ModuleSidePane from '../../components/ModuleSidePane/ModuleSidePane';
 import ModuleMainPane from '../../components/ModuleMainPane/ModuleMainPane';
 import ModuleSearch from '../../components/ModuleSearch/ModuleSearch';
 
-import RecordsFilter from './components/RecordsFilter/RecordsFilter';
-import RecordsView from './components/RecordsView/RecordsView';
-import ScrollBar from '../../components/ScrollBar/ScrollBar';
+import ViewRecords from './views/ViewRecords/ViewRecords';
 
 class Inbox extends Component {
 
@@ -20,13 +19,7 @@ class Inbox extends Component {
         </ModuleSidePane>
 
         <ModuleMainPane>
-          <div className="ModuleMainPane__header">
-            <RecordsFilter />
-          </div>
-          <div className="ModuleMainPane__content">
-            <RecordsView />
-            <ScrollBar />
-          </div>
+          <Route path="/contacts/:id/view" component={ ViewRecords } />
         </ModuleMainPane>
       </Module>
     );
