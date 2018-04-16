@@ -6,6 +6,10 @@ class ScrollBar extends Component {
   constructor(props) {
     super(props);    
 
+    this.state = {
+      visible: props.visible || false,
+    };
+
     this.bar = null;
     this.tab = null;
     this.container = null;
@@ -26,6 +30,14 @@ class ScrollBar extends Component {
   
   reset = () => {
 
+    const isNeeded = (this.container.scrollHeight > this.container.clientHeight);
+
+    if (this.state.visible !== isNeeded) {
+      this.setState({
+        visible: isNeeded,
+      });
+    }
+    
     this.bar.style.top = this.container.offsetTop + 'px';
     this.bar.style.height = this.container.clientHeight + 'px';
     this.tab.style.height = (((this.container.clientHeight + this.container.offsetTop) / this.container.scrollHeight) * 100) + '%';
@@ -58,7 +70,6 @@ class ScrollBar extends Component {
     const scrollTop = (movementRate / 100) * (this.container.scrollHeight - this.container.clientHeight);
 
     this.tab.style.top = position + 'px';
-    
     this.container.scrollTop = scrollTop;
 
     this.reset();
@@ -83,7 +94,7 @@ class ScrollBar extends Component {
 
   render() {
     return (
-      <div className="ScrollBar" ref="_scroll_bar">
+      <div className="ScrollBar" ref="_scroll_bar" data-visible={ this.state.visible }>
         <div className="ScrollBar__tab" ref="_scroll_tab"/>
       </div>
     );
